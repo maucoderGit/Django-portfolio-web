@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from random import randint
 from django.test import TestCase
+from django.urls import reverse
 from django.utils import timezone
 
 from main.models import Project, Tag
@@ -14,9 +15,9 @@ def create_project(days: datetime=0) -> Project:
     headline: str = 'a long string, but not so long'
     example_text: str = 'a string '*400
     title: str = 'Project test example'
-    pub_date: datetime = timezone.now() - timedelta()
+    pub_date: datetime = timezone.now() + timedelta(days)
 
-    project: Project = Project(title=title, headline=headline, content_text=example_text, pub_date=pub_date)
+    project: Project = Project.objects.create(title=title, headline=headline, content_text=example_text, pub_date=pub_date)
     project.save()
 
     return project
@@ -34,9 +35,9 @@ def create_project_tags(project: Project, tags: list[Tag]) -> Project:
     - text: str
     """
     for tag in tags:
-        project.tags.add(tag)
+        project.tag_set.add(tag)
 
-    return Project
+    return project
 
 
 class ProjectsModelTests(TestCase):
@@ -81,16 +82,14 @@ class ProjectsModelTests(TestCase):
         """
         If the "pub_date" is greater than 1 week in the past, the method must return a False value
         """
-        project = create_project(days=0)
-        project.pub_date = timezone.now() - timedelta(7)
+        project = create_project(days=-7)
         self.assertEqual(project.was_published_recently(), False)
 
     def test_project_method_with_future_pub_date(self):
         """
         If the "pub_date" is greater than 1 week in the future, the method must return a False value
         """
-        project = create_project(days=0)
-        project.pub_date = timezone.now() + timedelta(7)
+        project = create_project(days=7)
         self.assertEqual(project.was_published_recently(), False)
 
 #    def test_headline_attribute_must_be_less_or_equal_than_100(self):
@@ -164,15 +163,44 @@ class ProjectTagsTests(TestCase):
         self.assertIsInstance(project, Project)
         self.assertQuerysetEqual(project.tag_set.all(), [])
 
-class ProjectViews(TestCase):
+class HomeViewTests(TestCase):
     """
     Test all the project views
     """
-    def setUp(self):
+    def test_home_page_request_has_a_OK_status_code_response(self):
         """
-        Example models
+        If the server gets a request to get the main page, must return a status code
+        200.
         """
-        project = create_project(days=-1)
+        
+        # project = create_project()
+        # tags = [create_tag(f'tag{i}') for i in range(0, 3)]
+        # create_project_tags(project, tags)
 
-        tags = [create_tag('a random tag') for i in range(0, 5)]
-        project = create_project_tags(project=project, tags=tags)
+        response = self.client.get(reverse('main:home'))
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_home_page_with_one_past_and_one_future_project(self):
+        """
+        If the project contains one past and one future project, it only musts returns the
+        past projects.
+        """
+        project = create_project(-5)
+        future_project = create_project(5)
+        tags = [create_tag('a random tag') for i in range(0, 3)]
+        project = create_project_tags(project, tags)
+        future_project = create_project_tags(future_project, tags)
+
+        response = self.client.get(reverse('main:home'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context['latest_projects_list'],
+            [project]
+        )
+
+    def test_home_page_contact_section_with_many_projects(self):
+        """
+        
+        """

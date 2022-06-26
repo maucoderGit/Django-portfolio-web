@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from django import forms
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
@@ -14,7 +15,7 @@ class Project(models.Model):
     def __str__(self):
         """Returns a attribute in string type"""
         return self.title
-    
+
     @admin.display(
         boolean=True,
         ordering='pub_date',
@@ -23,11 +24,9 @@ class Project(models.Model):
     def was_published_recently(self) -> bool:
         """
         Validate if a question was published recently (Not more to seven days).
-
-        Returns True or False
+        Returns True if was published recently.
         """
         return timezone.now() >= self.pub_date >= timezone.now() - timedelta(days=1)
-
 
 # Tags
 class Tag(models.Model):
