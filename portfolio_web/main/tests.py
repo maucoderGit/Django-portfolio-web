@@ -200,7 +200,44 @@ class HomeViewTests(TestCase):
             [project]
         )
 
-    def test_home_page_contact_section_with_many_projects(self):
+    def test_home_page_services_section_with_many_projects(self):
         """
+        If the services secction contains more than 1 project must be displayed only the past or recently projects
+        """
+        project_list: list[Project] = [create_project(0 - i) for i in range(0, 3)]
+        tags = [create_tag(f'a random tag{i}') for i in range(0, 3)]
+
+        project_list = [create_project_tags(project, tags) for project in project_list]
+        response = self.client.get(reverse('main:home'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context['latest_projects_list'],
+            project_list
+        )
+
+class ProjectsViewTests(TestCase):
+
+    def test_project_page_request_has_OK_response(self):
+        """
+        The project page must have a 200 status code response
+        """
+        response = self.client.get(reverse('main:projects'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_page_display_all_recently_and_past_projects(self):
+        """
+        If there're many projects must display all the past and recently
+        projects.
+        """
+        project_list: list[Project] = [create_project(0 - i) for i in range(0, 3)]
+        tags = [create_tag(f'a random tag{i}') for i in range(0, 3)]
+
+        project_list = [create_project_tags(project, tags) for project in project_list]
+
+        response = self.client.get(reverse('main:projects'))
         
-        """
+        self.assertQuerysetEqual(
+            response.context['latest_projects_list'],
+            project_list
+        )

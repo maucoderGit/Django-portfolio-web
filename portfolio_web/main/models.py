@@ -31,8 +31,12 @@ class Project(models.Model):
 # Tags
 class Tag(models.Model):
     tag_name: str = models.CharField(max_length=35)
-    tags_projects: Project = models.ManyToManyField(Project)
+    tags_projects: Project = models.ManyToManyField(Project, through="ProjectTag")
 
     def __str__(self):
         """Returns a attribute in string type"""
         return self.tag_name
+
+class ProjectTag(models.Model):
+    tag_fk = models.ForeignKey(Tag, verbose_name=(""), on_delete=models.CASCADE)
+    project_fk = models.ForeignKey(Project, verbose_name=(""), on_delete=models.CASCADE)

@@ -6,11 +6,13 @@
 }
 .hero{
     background-color: #161419;
-    height:100vh;
+    height: 120px;
     width: 100%;
     /*background-image: url(../static/pexels-christina-morillo-1181271.jpg);*/
     background-size: cover;
     background-position: center;
+    padding: 5px;
+    margin-bottom: 0px;
 }
 .hero .service{
     background-color: #161419;
@@ -69,23 +71,28 @@ nav ul li a:hover{
 
 
 .content{
+    background-color: #161419;
     position: absolute;
-    top: 55%;
-    left: 8%;
+    padding-top: 60px;
+    width: 100%;
+    top: 54.1%;
+    padding-left: 8%;
     transform: translateY(-50%);
+    min-height: 500px;
+    min-width: 600px
 }
 
 h1{
     color:white;
-    margin: 20px 0px 20px;
-    font-size: 75px
+    font-size: 75px;
+    margin-bottom: 15px;
 }
 h3{
     color: white;
     font-size: 25px;
-    margin-bottom: 50px;
 }
 h4{
+    margin-bottom: 15px;
     color: #fcfc;
     letter-spacing: 2px;
     font-size: 20px;
@@ -124,7 +131,9 @@ h4{
 
 .about{
     width: 100%;
+    height: auto;
     padding: 100px 0px;
+    margin-top: 35%;
     background-color: #3E3B42;
 }
 .about img{
@@ -247,31 +256,54 @@ footer a:hover{
 .service{
     background: #161419;
     width: 100%;
-    padding: 100px 0px;
+    overflow: scroll;
+    padding: 60px;
+    position: relative;
 }
 .title h2{
     color: white;
     font-size: 75px;
-    width: 1130px;
+    width: 500px;
     margin: 30px auto;
     text-align: center;
 }
+
 .box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 80%;
     min-height: 400px;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    overflow: scroll;
 }
+
 .card{
-    height: 420px;
-    width: 335px;
+    height: 400px;
+    width: 300px;
+    min-height: 320px;
+    min-width: 280px;
     padding: 20px 35px;
     background-color: #FFFFFF;
     border-radius: 20px;
     margin: 15px;
-    position: relative;
     overflow: hidden;
     text-align: center;
+    white-space: normal;
+    display: inline-block;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center left;
+}
+
+.card:hover ~ .card{
+    transform: translate3d(100px, 0, 0);
+}
+
+.box:hover .card:hover{
+    transform: scale(1.2);
+    opacity: 1;
 }
 
 .card i{
