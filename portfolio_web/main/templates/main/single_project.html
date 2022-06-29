@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{project.title}}</title>
+    <link rel="stylesheet" type="text/css" href={% static 'main/single.css' %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy='no-referrer'>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h2 class="logo">Maucoder</h2>
+            <ul class="nav-list">
+                <li><a href="{% url 'main:home' %}">Home</a></li>
+                <li><a href="#">About me</a></li>
+                <li><a href="{% url 'main:projects' %}">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact me</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+
+        </div>
+        <main>
+            <h2>{{project.title}}</h2>
+            <div class="profile-container">
+                <div class="profile">
+                    <div class="text">
+                        <h3>Mauricio Gonzalez Falcon</h3>
+                        <p>June 28, 2022</p>
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="#" class="btn">Suscribe!</a>
+                </div>
+            </div>
+
+            <div class"content">
+                <p>{{project.content_text}}</p>   
+            </div>
+            <div class='tags'>
+                <p>Tags</p>
+                    {% for tag in project.tag_set.all %}
+                    <a href={% url 'main:projects' %}>{{tag}}</a>
+                    {% endfor %}
+            </div>
+        </main>
+    </div>
+    <div class="articles">
+        <div class="article-heading">
+            <h5>Articles</h5>
+            <h6>Other Projects</h6>
+        </div>
+        
+        <div class='cards container'>
+            {% for a_project in Project.objects.all %}
+                <div class='card-container'>
+                    <div class="card-text"> 
+                        <h6>{{a_project.title}}</h6>
+                        <p>{{a_project.headline}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='button'>
+            <a href="{% url 'main:projects' %}" class='btn'>View All</a>
+        </div>
+    </div>
+    {% include 'main/footer.html' %}
+</body>
+</html>
