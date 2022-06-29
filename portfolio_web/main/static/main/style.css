@@ -1,0 +1,350 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Josefin Sans";
+    box-sizing: border-box;
+}
+.hero{
+    background-color: #161419;
+    height: 120px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    padding: 5px;
+    margin-bottom: 0px;
+}
+.hero .service{
+    background-color: #161419;
+    height:10vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.logo{
+    color:white;
+    font-size: 35px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+span{
+    color: #0adedb;
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+nav ul li a:hover{
+    color: #07c3c0;
+    transition: .4s;
+}
+.btn{
+    background-color: #07c3c0;
+    color: wheat;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: transform .4s;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+}
+
+/* Content */
+
+
+.content{
+    background-color: #161419;
+    position: absolute;
+    padding-top: 60px;
+    width: 100%;
+    top: 54.1%;
+    padding-left: 8%;
+    transform: translateY(-50%);
+    min-height: 500px;
+    min-width: 600px
+}
+
+h1{
+    color:white;
+    font-size: 75px;
+    margin-bottom: 15px;
+}
+h3{
+    color: white;
+    font-size: 25px;
+}
+h4{
+    margin-bottom: 15px;
+    color: #fcfc;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.newsletter form{
+    width: 380px;
+    max-width: 100%;
+    position: relative;
+}
+.newsletter form input:first-child{
+    display: inline-block;
+    width: 100%;
+    padding: 14px 130px 14px 15px;
+    border: 2px solid #07c3c0;
+    outline: none;
+    border-radius: 30px;
+}
+.newsletter form input:last-child{
+    position: absolute;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: #07c3c0;
+    color: white;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+    top: 6px;
+    right: 6px;
+}
+
+/* End Content */
+
+/* About me */
+
+.about{
+    width: 100%;
+    height: auto;
+    padding: 100px 0px;
+    margin-top: 35%;
+    background-color: #3E3B42;
+}
+.about img{
+    height: auto;
+    width: 430px;
+}
+.about-text{
+    width:550px;
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.about-text h2{
+    color: white;
+    font-size: 75px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.about-text h5{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+.about-text p{
+    color: #fcfc;
+    letter-spacing: 1px;
+    line-height:  28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+button{
+    background-color: #07c3c0;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+}
+button:hover{
+    background-color: transparent;
+    border: 2px solid #07c3c0;
+    cursor: pointer;
+}
+
+/* End About me */
+
+footer{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer p:nth-child(1){
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+footer p:nth-child(2){
+    color: white;
+    font-size: 17px;
+    width: 500px;
+    text-align: center;
+    line-height: 26px;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+footer a:hover{
+    color: #07c3c0;
+    transition: .4s;
+}
+
+.social{
+    display: flex
+}
+.social a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0adedb;
+    border-radius: 50%;
+    margin: 22px 10px
+}
+.social a:hover{
+    transform: scale(1.3);
+    transition: .3s;
+}
+
+.end{
+    position: absolute;
+    color: #0adedb;
+    bottom: 35px;
+    font-size: 15px;
+}
+
+/* Services & Projects section */
+.service{
+    background: #161419;
+    width: 100%;
+    overflow: scroll;
+    padding: 60px;
+    position: relative;
+}
+.title h2{
+    color: white;
+    font-size: 75px;
+    width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.box{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    overflow: hidden;
+    width: 100%;
+    height: 80%;
+    min-height: 400px;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    overflow: scroll;
+}
+
+.card{
+    height: 400px;
+    width: 3px;
+    min-height: 320px;
+    min-width: 280px;
+    padding: 20px 35px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin: 15px;
+    overflow: hidden;
+    text-align: center;
+    white-space: normal;
+    display: inline-block;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center left;
+}
+
+.card:hover ~ .card{
+    transform: translate3d(100px, 0, 0);
+}
+
+.box:hover ~ .card{
+    opacity: 0.3;
+}
+
+.box:hover .card:hover{
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.card i{
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    margin: 25px 0px;
+    color: #0adedb;
+}
+h5{
+    color: #000;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+.pra p{
+    color: #000;
+    font-size: 16px;
+    line-height: 27px;
+    margin: 25px;
+}
+
+.card .buttom{
+    background-color: #07c3c0;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.card .buttom:hover{
+    color:#000;
+    background-color: transparent;
+    border: 2px solid #0adedb;
+    cursor: pointer;
+}

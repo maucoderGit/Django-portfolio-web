@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="content">
+        <div class="content__pitch"></div>
+        <h4>Hello, my name is</h4>
+        <h1><span>Mau</span>ricio Gonzalez Falcon</h1>
+        <h3>I'm a Backend Developer, not a frontend</h3>
+        <div class="newsletter">
+            <form>
+                <input  action="email" name="email" id="mail" placeholder="Enter your email">
+                <input type="submit" name="submit" value="Let's start">
+            </form>
+        </div>
+    </div>
+    <!--About section start-->
+    <section class="about">
+        <div class="main">
+            <!--Profesional picture-->
+            <img src="" alt="Mauricio's picture">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <h5>Python <span>Backend developer</span></h5>
+                <p>
+                    I'm a backend developer. I can contribute with clean code on the server-side using Python and some popular frameworks and libraries like Flask or FastAPI. I only have a way to change the world and the life of many people, and that is my code.
+                </p>
+                <button type="buttom">Let's Talk</button>
+            </div>
+        </div>
+    </section>
+    {% comment %} Service & Projects {% endcomment %}
+    <section class='service'>
+        {% include 'main/projects.html' %}
+    </section>
+{% endblock %}

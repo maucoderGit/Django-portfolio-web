@@ -1,0 +1,24 @@
+<div class="title">
+    <h2>Projects</h2>
+</div>
+    <div class="box">
+        {% if latest_projects_list %}
+        {% for project in latest_projects_list %}
+            <div class="card" id="{{project.id}}">
+                <i class="fa-solid fa-bars"></i>
+                <h5>{{project.title}}</h5>
+                <div class="pra">
+                    <p>
+                        {{project.headline}}
+                    </p>
+
+                    <p style="text-align: center;">
+                        <a class='buttom' href="{% url 'main:project' project.id %}">Read more</a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+        <h2>There're no projects</h2>
+    {% endif %}
+</div>
