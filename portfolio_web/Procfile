@@ -1,2 +1,2 @@
-web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent main:app
-web: python project-name/manage.py runserver 0.0.0.0:$PORT
+web: gunicorn django-portfolio-maucoder.wsgi --log-file -
+web: python django-portfolio-maucoder.py runserver 0.0.0.0:$PORT
