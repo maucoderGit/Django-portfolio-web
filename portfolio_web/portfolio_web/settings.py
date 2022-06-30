@@ -149,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WHITENOISE_USE_FINDERS = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+import django_heroku
+django_heroku.settings(locals())
