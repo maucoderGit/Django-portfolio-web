@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,7 @@ SECRET_KEY = 'django-insecure--9+15&9o#gjpoxyg@#t%0gkn2v$pgfbi0!^o44curuf*%ij(m7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
-
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'django-portfolio-maucoder.herokuapp.com']
 
 # Application definition
 
@@ -87,10 +87,24 @@ WSGI_APPLICATION = 'portfolio_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9vd0dhmsoc4m9',
+        'USER': 'qfgunhansugafy',
+        'PASSWORD': '37a74d7a5f40297beb64a0eebf60d7a7c094ee282340f8f254a981c416324e3c',
+        'HOST': 'ec2-44-205-41-76.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
+
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -135,3 +149,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WHITENOISE_USE_FINDERS = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))

@@ -7,3 +7,4 @@ Unipath
 python-decouple
 Pillow
 whitenoise
+psycopg2-binary
