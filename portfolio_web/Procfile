@@ -1,2 +1,1 @@
-web: python manage.py runserver 0.0.0.0:\$PORT
-web: gunicorn django-portfolio-maucoder.wsgi --log-file -
+web: gunicorn portfolio_web.wsgi --log-file -
