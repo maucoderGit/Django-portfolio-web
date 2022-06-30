@@ -23,9 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--9+15&9o#gjpoxyg@#t%0gkn2v$pgfbi0!^o44curuf*%ij(m7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+<<<<<<< HEAD
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+=======
+DEBUG = True
+
+ALLOWED_HOSTS = []
+>>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
 
 
 # Application definition
@@ -36,8 +42,12 @@ DJANGO_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+<<<<<<< HEAD
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic'
+=======
+    'django.contrib.staticfiles'
+>>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
 ]
 
 LOCAL_APPS = [
@@ -52,7 +62,11 @@ INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS
 
 
 MIDDLEWARE = [
+<<<<<<< HEAD
     'django.middleware.security.SecurityMiddleware', 'whitenoise.middleware.WhiteNoiseMiddleware',
+=======
+    'django.middleware.security.SecurityMiddleware',
+>>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,7 +80,11 @@ ROOT_URLCONF = 'portfolio_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': ['templates'],
+=======
+        'DIRS': [],
+>>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,5 +151,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 WHITENOISE_USE_FINDERS = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+=======
+>>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb

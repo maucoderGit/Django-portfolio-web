@@ -74,10 +74,6 @@ header{
 .hero{
     max-width: 114rem;
     height: 20rem;
-<<<<<<< HEAD
-=======
-    background: url(../images/blog-banner.jpg) no-repeat center center / cover;
->>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
     margin: 1rem auto;
 }
 
@@ -113,11 +109,7 @@ main .profile-container .profile{
 main .profile-container .profile .img-container{
     width: 3rem;
     height: 6rem;
-<<<<<<< HEAD
     background: url('https://avatars.githubusercontent.com/u/85379984?s=400&u=0979415194b862fe5f800830e85794e412c481b5&v=4');
-=======
-    /* background: url(Git hub link)no-repeat center center / cover */
->>>>>>> 6cdd742b53b622fb90970b376ac13b23cb8ec2bb
     border-radius: 0.5rem;
 }
 main .profile-container .profile .text{
