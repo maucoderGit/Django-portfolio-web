@@ -1,1 +1,1 @@
-web: gunicorn  django-portfolio-maucoder.wsgi
+web: gunicorn portfolio_web.wsgi
