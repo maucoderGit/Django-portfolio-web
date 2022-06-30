@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--9+15&9o#gjpoxyg@#t%0gkn2v$pgfbi0!^o44curuf*%ij(m7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'django-portfolio-maucoder.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -82,15 +83,13 @@ WSGI_APPLICATION = 'portfolio_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+import dj_database_url
+from decouple import config
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9vd0dhmsoc4m9',
-        'USER': 'qfgunhansugafy',
-        'PASSWORD': '37a74d7a5f40297beb64a0eebf60d7a7c094ee282340f8f254a981c416324e3c',
-        'HOST': 'ec2-44-205-41-76.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 import sys
 if 'test' in sys.argv:
